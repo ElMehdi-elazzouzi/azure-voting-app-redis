@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-vote-front
+spec:
+  replicas: {{ .Values.frontend.replicas }}
+  selector:
+    matchLabels:
+      app: azure-vote-front
+  template:
+    metadata:
+      labels:
+        app: azure-vote-front
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+      - name: azure-vote-front
+        image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
+        env:
+        - name: REDIS
+          value: "azure-vote-back"
