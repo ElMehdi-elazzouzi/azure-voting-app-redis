@@ -59,7 +59,7 @@ jobs:
       - name: Get AKS credentials
         run: az aks get-credentials --resource-group ${{ env.RESOURCE_GROUP }} --name ${{ env.AKS_CLUSTER }} --overwrite-existing
 
-      # 8. Deploy with Helm, injecting the new image tag
+      # 8.  Deploy with Helm, injecting the new image tag
       - name: Helm deploy
         run: |
           helm upgrade --install azure-vote ./azure-vote-chart \
