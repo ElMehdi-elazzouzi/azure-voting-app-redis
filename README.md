@@ -58,3 +58,19 @@ flowchart TB
     classDef mon fill:#f3e5f5,stroke:#8e24aa,color:#4a148c
     classDef tf fill:#ede7f6,stroke:#5e35b1,color:#311b92
 ```
+
+## Tech Stack
+
+- **Cloud & IaC:** Azure (AKS, ACR, Entra ID), Terraform
+- **Containers & Orchestration:** Docker, Kubernetes, Helm
+- **CI/CD & GitOps:** GitHub Actions, ArgoCD, OIDC federation
+- **Observability & Security:** Prometheus, Grafana, Trivy, Kubescape
+
+
+## Highlights
+
+- Fully reproducible infrastructure via Terraform with remote state
+- Keyless CI/CD authentication using OIDC (no stored secrets)
+- Pull-based GitOps deployment with ArgoCD self-healing
+- Security scanning (Trivy) integrated as a pipeline gate
+- Least-privilege image pulls via Managed Identity
